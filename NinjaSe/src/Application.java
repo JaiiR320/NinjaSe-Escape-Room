@@ -15,9 +15,9 @@ public class Application extends JFrame {
         this.setTitle("NinjaSe"); // sets title of frame
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // exit on close window
         this.setResizable(false); // not resizable
-        this.setSize(800, 500); // 800x500 pixels
+        this.setSize(800, 540); // 800x500 pixels
         this.setLocation(200, 200); // opens at top left corner, (200, 200)
-
+        this.setLayout(null);
         ImageIcon icon = new ImageIcon("abra.png");
         this.setIconImage(icon.getImage()); // change image at top left of frame
 
@@ -25,14 +25,14 @@ public class Application extends JFrame {
         this.getContentPane().setBackground(Color.LIGHT_GRAY); // set background color
         JLabel label = new JLabel();
         label.setText("Ninja Se");
-        Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 3);
-        label.setBorder(border);
         label.setVerticalAlignment(JLabel.TOP);
         label.setHorizontalAlignment(JLabel.LEFT);
-        label.setBounds(0, 0, 250, 250);
+        JPanel panel = new JPanel();
+        panel.setBounds(0,0,500,500);
+        panel.add(label);
+        this.add(panel);
 
-        this.add(label);
-        this.pack();
+        
         this.setVisible(true); // is visible
 
     }
