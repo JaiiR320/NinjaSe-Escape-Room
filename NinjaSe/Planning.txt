@@ -1,0 +1,20 @@
+Board
+-----
+height : int
+width : int
+moveCount : int
+playerX : int
+playerY : int
+spaces : Spaces[height][width]
+
+Space
+-----
+Player, Red, Yellow, Green, Blue, Cyan, Magenta, Empty
+
+Direction
+---------
+Up, Down, Left, Right
+
+Model
+-----
+board : Board

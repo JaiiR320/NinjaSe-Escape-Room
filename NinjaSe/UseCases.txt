@@ -1,0 +1,66 @@
+Use Case : Move NinjaSe
+----------------------
+Participating Actor : Initiated by Player
+Entry Condition : Empty space adjacent to player
+Exit Criteria : Player is mode to empty place
+Flow of Events
+1. The Player requests to move NinjaSe
+2. NinjaSeGame moves player and updates display
+
+Use Case : Push Obstacle
+-----------------------
+Participating Actor : Initiated by Player
+Entry Condition : Obstacle is adjacent to NinjaSe
+Exit Criteria : Obstacle is moved, and player is moved
+Flow of Events
+1. The Player requests to push the Obstacle
+2. NinjaSeGame pushes Obstacle and updates display
+
+Use Case : Combine Obstacles
+----------------------------
+Participating Actor : Initated by Player
+Entry Condition : NinjaSe is adjacent to Obstacle and Obstacle is adjacent to respective colored Obstacle
+Exit Criteria : Obstacle is moved onto respective Obstacle and both are removed
+Flow of Events
+1. The Player requests to push an Obstacle
+2. NinjaSeGame combines Obstacles and display is updated
+
+Use Case : Choose Level
+----------------------------
+Participating Actor : Initated by Player
+Entry Condition : none
+Exit Criteria : Corresponding level is loaded
+Flow of Events
+1. The Player requests to choose level
+2. NinjaSeGame loads corresponding level and display is updated
+
+Use Case : Reset Level
+----------------------------
+Participating Actor : Initated by Player
+Entry Condition : none
+Exit Criteria : Obstacles and NinjaSe are replaced to starting position
+Flow of Events
+1. The Player requests to reset level
+2. NinjaSeGame resets level and display is updated
+
+Use Case : Exit Game
+----------------------------
+Participating Actor : Initated by Player
+Entry Condition : none
+Exit Criteria : Game is exited
+Flow of Events
+1. The Player requests to exit game
+2. NinjaSeGame closes game
+
+TEMPLATE
+Use Case : VERB NOUN
+----------------------------
+Participating Actor : Initated by Player
+Entry Condition : ...
+Exit Criteria : ...
+Flow of Events
+1. The Player requests to ...
+2. NinjaSeGame ... and display is updated
+
+
+

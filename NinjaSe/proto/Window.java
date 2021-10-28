@@ -20,7 +20,7 @@ public class Window extends JFrame implements ActionListener {
                     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
                     Window frame = new Window();
                     frame.setVisible(true);
-                    name = JOptionPane.showInputDialog("Enter your name");
+                    name = JOptionPane.showInputDialog("Enter your name");  
                     JOptionPane.showMessageDialog(null, "Hello, " + name);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -72,8 +72,8 @@ public class Window extends JFrame implements ActionListener {
         panel2.setLayout(layout2);
         
         // Add the buttons into the panel with three different alignment options
-        jb1.setAlignmentX(LEFT_ALIGNMENT);
-        jb2.setAlignmentX(LEFT_ALIGNMENT);
+        jb1.setAlignmentX(CENTER_ALIGNMENT);
+        jb2.setAlignmentX(CENTER_ALIGNMENT);
         panel1.add(jb1);
         panel1.add(jb2);
         
@@ -82,14 +82,13 @@ public class Window extends JFrame implements ActionListener {
         panel2.add(jb3);
         panel2.add(jb4);
         
-        
         // Add the three panels into the frame
         setLayout(new FlowLayout());
         add(panel1);
         add(panel2);
         
         // Set the window to be visible as the default to be false
-        pack();
+        //pack();
         setVisible(false);
     }
 
