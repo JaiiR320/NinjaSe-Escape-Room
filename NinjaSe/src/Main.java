@@ -2,6 +2,5 @@
  * Main
  */
 public class Main {
-
     
 }
