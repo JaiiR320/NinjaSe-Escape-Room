@@ -25,10 +25,10 @@ public class Board {
     public Board(int height, int width){
         this.height = height-1;
         this.width = width-1;
-        this.space = new Space[width][height];
-        for (int i = 0; i < width; i++) {
-            for (int j = 0; j < height; j++) {
-                this.setSpace(i, j, Space.Empty);
+        this.space = new Space[height][width];
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                this.space[i][j] = Space.Empty;
             }
         }
         this.playerX = -1;
@@ -45,12 +45,16 @@ public class Board {
      */
     public void setSpace(int x, int y, Space s) {
         if(s == Space.Player){this.playerX = x; this.playerY = y;}
-        this.space[x][y] = s;
+        this.space[y][x] = s;
     }
 
     public void setObstacle(int x1, int y1, int x2, int y2, Space s){
-        this.space[x1][y1] = s;
-        this.space[x2][y2] = s;
+        this.space[y1][x1] = s;
+        this.space[y2][x2] = s;
+    }
+
+    public Space getSpace(int x, int y){
+        return this.space[y][x];
     }
 
     /**
@@ -63,12 +67,12 @@ public class Board {
      */
     public boolean isObstacle(int x, int y) {
         boolean out = 
-        (this.space[x][y] == Space.Blue    ||
-         this.space[x][y] == Space.Cyan    || 
-         this.space[x][y] == Space.Green   || 
-         this.space[x][y] == Space.Magenta || 
-         this.space[x][y] == Space.Red     || 
-         this.space[x][y] == Space.Yellow);
+        (this.space[y][x] == Space.Blue    ||
+         this.space[y][x] == Space.Cyan    || 
+         this.space[y][x] == Space.Green   || 
+         this.space[y][x] == Space.Magenta || 
+         this.space[y][x] == Space.Red     || 
+         this.space[y][x] == Space.Yellow);
         return out; 
     }
 
@@ -82,23 +86,23 @@ public class Board {
         this.moveCount++;
         switch (d) {
         case Up:
-            this.space[this.playerX][this.playerY-1] = Space.Player;
-            this.space[this.playerX][this.playerY] = Space.Empty;
+            this.space[this.playerY-1][this.playerX] = Space.Player;
+            this.space[this.playerY][this.playerX] = Space.Empty;
             this.playerY -= 1;
             break;
         case Down:
-            this.space[this.playerX][this.playerY+1] = Space.Player;
-            this.space[this.playerX][this.playerY] = Space.Empty;
+            this.space[this.playerY+1][this.playerX] = Space.Player;
+            this.space[this.playerY][this.playerX] = Space.Empty;
             this.playerY += 1;
             break;
         case Left:
-            this.space[this.playerX-1][this.playerY] = Space.Player;
-            this.space[this.playerX][this.playerY] = Space.Empty;
+            this.space[this.playerY][this.playerX-1] = Space.Player;
+            this.space[this.playerY][this.playerX] = Space.Empty;
             this.playerX -= 1;
             break;
         case Right:
-            this.space[this.playerX+1][this.playerY] = Space.Player;
-            this.space[this.playerX][this.playerY] = Space.Empty;
+            this.space[this.playerY][this.playerX+1] = Space.Player;
+            this.space[this.playerY][this.playerX] = Space.Empty;
             this.playerX += 1;
             break; 
         }
@@ -115,27 +119,27 @@ public class Board {
         this.moveCount++;
         switch (d) {
         case Up:
-            this.space[this.playerX][this.playerY-2] = this.space[this.playerX][this.playerY-1];
-            this.space[this.playerX][this.playerY-1] = Space.Player;
-            this.space[this.playerX][this.playerY] = Space.Empty;
+            this.space[this.playerY-2][this.playerX] = this.space[this.playerY-1][this.playerX];
+            this.space[this.playerY-1][this.playerX] = Space.Player;
+            this.space[this.playerY][this.playerX] = Space.Empty;
             this.playerY -= 1;
             break;
         case Down:
-            this.space[this.playerX][this.playerY+2] = this.space[this.playerX][this.playerY+1];
-            this.space[this.playerX][this.playerY+1] = Space.Player;
-            this.space[this.playerX][this.playerY] = Space.Empty;
+            this.space[this.playerY+2][this.playerX] = this.space[this.playerY+1][this.playerX];
+            this.space[this.playerY+1][this.playerX] = Space.Player;
+            this.space[this.playerY][this.playerX] = Space.Empty;
             this.playerY += 1;
             break;
         case Left:
-            this.space[this.playerX-2][this.playerY] = this.space[this.playerX-1][this.playerY];
-            this.space[this.playerX-1][this.playerY] = Space.Player;
-            this.space[this.playerX][this.playerY] = Space.Empty;
+            this.space[this.playerY][this.playerX-2] = this.space[this.playerY][this.playerX-1];
+            this.space[this.playerY][this.playerX-1] = Space.Player;
+            this.space[this.playerY][this.playerX] = Space.Empty;
             this.playerX -= 1;
             break;
         case Right:
-            this.space[this.playerX+2][this.playerY] = this.space[this.playerX+1][this.playerY];
-            this.space[this.playerX+1][this.playerY] = Space.Player;
-            this.space[this.playerX][this.playerY] = Space.Empty;
+            this.space[this.playerY][this.playerX+2] = this.space[this.playerY][this.playerX+1];
+            this.space[this.playerY][this.playerX+1] = Space.Player;
+            this.space[this.playerY][this.playerX] = Space.Empty;
             this.playerX += 1;
             break; 
         }
@@ -152,27 +156,27 @@ public class Board {
         this.moveCount++;
         switch (d) {
         case Up:
-            this.space[this.playerX][this.playerY-2] = Space.Empty;
-            this.space[this.playerX][this.playerY-1] = Space.Player;
-            this.space[this.playerX][this.playerY] = Space.Empty;
+            this.space[this.playerY-2][this.playerX] = Space.Empty;
+            this.space[this.playerY-1][this.playerX] = Space.Player;
+            this.space[this.playerY][this.playerX] = Space.Empty;
             this.playerY -= 1;
             break;
         case Down:
-            this.space[this.playerX][this.playerY+2] = Space.Empty;
-            this.space[this.playerX][this.playerY+1] = Space.Player;
-            this.space[this.playerX][this.playerY] = Space.Empty;
+            this.space[this.playerY+2][this.playerX] = Space.Empty;
+            this.space[this.playerY+1][this.playerX] = Space.Player;
+            this.space[this.playerY][this.playerX] = Space.Empty;
             this.playerY += 1;
             break;
         case Left:
-            this.space[this.playerX-2][this.playerY] = Space.Empty;
-            this.space[this.playerX-1][this.playerY] = Space.Player;
-            this.space[this.playerX][this.playerY] = Space.Empty;
+            this.space[this.playerY][this.playerX-2] = Space.Empty;
+            this.space[this.playerY][this.playerX-1] = Space.Player;
+            this.space[this.playerY][this.playerX] = Space.Empty;
             this.playerX -= 1;
             break;
         case Right:
-            this.space[this.playerX+2][this.playerY] = Space.Empty;
-            this.space[this.playerX+1][this.playerY] = Space.Player;
-            this.space[this.playerX][this.playerY] = Space.Empty;
+            this.space[this.playerY][this.playerX+2] = Space.Empty;
+            this.space[this.playerY][this.playerX+1] = Space.Player;
+            this.space[this.playerY][this.playerX] = Space.Empty;
             this.playerX += 1;
             break; 
         }
@@ -188,13 +192,13 @@ public class Board {
     public boolean checkMove(Direction d){
         switch (d) {
         case Up:
-            return this.playerY != 0 && this.space[this.playerX][this.playerY-1] == Space.Empty;
+            return this.playerY != 0 && this.space[this.playerY-1][this.playerX] == Space.Empty;
         case Down:
-            return this.playerY != this.height && this.space[this.playerX][this.playerY+1] == Space.Empty;
+            return this.playerY != this.height && this.space[this.playerY+1][this.playerX] == Space.Empty;
         case Left:
-            return this.playerX != 0 && this.space[this.playerX-1][this.playerY] == Space.Empty;
+            return this.playerX != 0 && this.space[this.playerY][this.playerX-1] == Space.Empty;
         case Right:
-            return this.playerX != this.width && this.space[this.playerX+1][this.playerY] == Space.Empty;
+            return this.playerX != this.width && this.space[this.playerY][this.playerX+1] == Space.Empty;
         }
         return false;
     }
@@ -233,13 +237,13 @@ public class Board {
         int y = this.playerY;
         switch (d) {
         case Up:
-            return y > 1 && this.isObstacle(x, y-1) && this.isObstacle(x, y-2) && space[x][y-1] == space[x][y-2];
+            return y > 1 && this.isObstacle(x, y-1) && this.isObstacle(x, y-2) && space[y-1][x] == space[y-2][x];
         case Down:
-            return y < this.height-1 && this.isObstacle(x, y+1) && this.isObstacle(x, y+2) && space[x][y+1] == space[x][y+2];
+            return y < this.height-1 && this.isObstacle(x, y+1) && this.isObstacle(x, y+2) && space[y+1][x]== space[y+2][x];
         case Left:
-            return x > 1 && this.isObstacle(x-1, y) && this.isObstacle(x-2, y) && space[x-1][y] == space[x-2][y];
+            return x > 1 && this.isObstacle(x-1, y) && this.isObstacle(x-2, y) && space[y][x-1] == space[y][x-2];
         case Right:
-            return x < this.width-1 && this.isObstacle(x+1, y) && this.isObstacle(x+2, y) && space[x+1][y] == space[x+2][y]; 
+            return x < this.width-1 && this.isObstacle(x+1, y) && this.isObstacle(x+2, y) && space[y][x+1] == space[y][x+2]; 
         default:
             return false;
         }
