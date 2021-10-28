@@ -169,6 +169,16 @@ public class BoardTest {
         assertFalse(b.checkMove(Direction.Right));
 
         b = new Board(5, 5);
+        b.setSpace(0, 0, Space.Player);
+        assertFalse(b.checkMove(Direction.Up));
+        assertFalse(b.checkMove(Direction.Left));
+
+        b = new Board(5, 5);
+        b.setSpace(4, 4, Space.Player);
+        assertFalse(b.checkMove(Direction.Down));
+        assertFalse(b.checkMove(Direction.Right));
+
+        b = new Board(5, 5);
         b.setSpace(2, 2, Space.Player);
         assertTrue(b.checkMove(Direction.Up));
         assertTrue(b.checkMove(Direction.Down));

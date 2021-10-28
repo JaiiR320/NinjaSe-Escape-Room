@@ -23,8 +23,8 @@ public class Board {
      * @param width
      */
     public Board(int height, int width){
-        this.height = height;
-        this.width = width;
+        this.height = height-1;
+        this.width = width-1;
         this.space = new Space[width][height];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < height; j++) {
@@ -188,21 +188,13 @@ public class Board {
     public boolean checkMove(Direction d){
         switch (d) {
         case Up:
-            if(this.playerY != 0 && this.space[this.playerX][this.playerY-1] == Space.Empty){
-                return true;
-            }
+            return this.playerY != 0 && this.space[this.playerX][this.playerY-1] == Space.Empty;
         case Down:
-            if(this.playerY != this.height && this.space[this.playerX][this.playerY+1] == Space.Empty){
-                return true;
-            }
+            return this.playerY != this.height && this.space[this.playerX][this.playerY+1] == Space.Empty;
         case Left:
-            if(this.playerX != 0 && this.space[this.playerX-1][this.playerY] == Space.Empty){
-                return true;
-            }
+            return this.playerX != 0 && this.space[this.playerX-1][this.playerY] == Space.Empty;
         case Right:
-            if(this.playerX != this.width && this.space[this.playerX+1][this.playerY] == Space.Empty){
-                return true;
-            }         
+            return this.playerX != this.width && this.space[this.playerX+1][this.playerY] == Space.Empty;
         }
         return false;
     }

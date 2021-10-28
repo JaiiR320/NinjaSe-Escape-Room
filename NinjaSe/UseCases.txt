@@ -43,14 +43,14 @@ Flow of Events
 1. The Player requests to reset level
 2. NinjaSeGame resets level and display is updated
 
-Use Case : Exit Game
+Use Case : Win Game
 ----------------------------
 Participating Actor : Initated by Player
-Entry Condition : none
-Exit Criteria : Game is exited
+Entry Condition : All obstacles removed
+Exit Criteria : Win screen is displayed
 Flow of Events
 1. The Player requests to exit game
-2. NinjaSeGame closes game
+2. NinjaSeGame shows win screen and display is updated
 
 TEMPLATE
 Use Case : VERB NOUN
