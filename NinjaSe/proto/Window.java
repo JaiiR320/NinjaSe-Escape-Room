@@ -3,7 +3,6 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-
 public class Window extends JFrame implements ActionListener {
     private static String name;
     /**
@@ -17,7 +16,8 @@ public class Window extends JFrame implements ActionListener {
                     for (UIManager.LookAndFeelInfo look : looks) {
                         System.out.println(look.getClassName());
                     }
-                    UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+                    UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme");
+                    
                     Window frame = new Window();
                     frame.setVisible(true);
                     name = JOptionPane.showInputDialog("Enter your name");  
