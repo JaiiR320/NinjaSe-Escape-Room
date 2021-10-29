@@ -1,8 +1,7 @@
 {
     "java.project.sourcePaths": [
         "NinjaSe/test",
-        "NinjaSe/src",
-        "NinjaSe/proto"
+        "NinjaSe/src"
     ],
     "java.project.referencedLibraries": [
         "lib/**/*.jar",

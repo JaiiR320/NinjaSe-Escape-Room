@@ -1,57 +1,45 @@
 import java.util.Scanner;
 
-import entities.*;
+import boundaries.Window;
+import controller.KeyHandler;
+import controller.ModelController;
 
 /**
  * Main
  * input w a s d for movement, and reset to reset the board
  */
-public class Main {
+public class Main {    
+    public static int level;
     public static void main(String[] args) {
-        Model ninjaSeModel = new Model(0);
-        Scanner in = new Scanner(System.in);
-        ninjaSeModel.printBoard();
-        String move;
-        while(!ninjaSeModel.checkWin()){
-            if(ninjaSeModel.checkMove(Direction.Up)){
-                System.out.print("Up, ");
+        Scanner scan = new Scanner(System.in);
+        //level = scan.nextInt();
+        level = 1;
+        ModelController controller = new ModelController(level);
+        Window game = new Window(controller.getBoard());
+        game.updateGamePanel(controller.getBoard());
+        while(true){
+            game.updateGamePanel(controller.getBoard());
+            controller.model.movePlayer(KeyHandler.proposed);
+
+            if (KeyHandler.reset) {
+                controller = new ModelController(level);
+                KeyHandler.reset = false;
             }
-            if(ninjaSeModel.checkMove(Direction.Down)){
-                System.out.print("Down, ");
+            if (KeyHandler.moves) {
+                System.out.println(controller.model.board.moveCount);
+                KeyHandler.moves = false;
             }
-            if(ninjaSeModel.checkMove(Direction.Left)){
-                System.out.print("Left, ");
-            }
-            if(ninjaSeModel.checkMove(Direction.Right)){
-                System.out.print("Right, ");
-            }
-            System.out.println("is avaliable");
-            move = in.nextLine();
-            if(move.compareTo("w") == 0)
-                ninjaSeModel.movePlayer(Direction.Up);
-            else if(move.compareTo("a") == 0)
-                ninjaSeModel.movePlayer(Direction.Left);
-            else if(move.compareTo("s") == 0)
-                ninjaSeModel.movePlayer(Direction.Down);
-            else if(move.compareTo("d") == 0)
-                ninjaSeModel.movePlayer(Direction.Right);
-            else if(move.compareTo("reset") == 0){
-                ninjaSeModel = new Model(0);
-            }
-            else if(move.compareTo("moves") == 0){
-                System.out.println(ninjaSeModel.board.moveCount);
-            }
-            
-            if (ninjaSeModel.checkWin()) {
+            if (controller.model.checkWin()) {
                 System.out.println("You Won!");
-                System.out.println(ninjaSeModel.board.moveCount);
-                ninjaSeModel.printBoard();
-                ninjaSeModel = new Model(0);
+                System.out.println(controller.model.board.moveCount);
+                game.updateGamePanel(controller.model.board);
+                System.out.println("Continue? (yes)");
+                while (scan.nextLine().compareTo("yes") != 0) {
+                    System.out.println("Continue? (yes)");
+                }
+                KeyHandler.proposed = null;
+                controller = new ModelController(level);
             }
-            ninjaSeModel.printBoard();
         }
-        
-        in.close();
     }
-    
 }

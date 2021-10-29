@@ -1,5 +1,7 @@
 package entities;
 
+import controller.KeyHandler;
+
 /**
  * Model
  */
@@ -28,6 +30,9 @@ public class Model {
      * @param d the specified direction
      */
     public void movePlayer(Direction d){
+        if(d == null){
+            return;
+        }
         if(this.board.checkMove(d)){
             this.board.move(d);
         }
@@ -40,6 +45,7 @@ public class Model {
         else {
             System.out.println("Cannot move " + d);
         }
+        KeyHandler.reset();
     }
     
     /**
@@ -109,11 +115,20 @@ public class Model {
     }
 
     private void initLevel2(){
-        //TODO : implement medium difficulty level
+        this.board = new Board(7, 7);
+        this.board.setSpace(0, 0, Space.Player);
+        this.board.setObstacle(1, 0, 2, 0, Space.Red);
+        this.board.setObstacle(0, 1, 1, 1, Space.Blue);
+        this.board.setObstacle(1, 2, 2, 2, Space.Green);
     }
 
     private void initLevel3(){
-        //TODO : implement hard difficulty level
+        this.board = new Board(7, 7);
+        this.board.setSpace(1, 0, Space.Player);
+        this.board.setObstacle(0, 1, 2, 1, Space.Red);
+        this.board.setObstacle(2, 0, 3, 1, Space.Yellow);
+        this.board.setObstacle(1, 1, 6, 2, Space.Blue);
+        this.board.setObstacle(6, 0, 6, 1, Space.Green);
     }
 
     private void initDefault(){
