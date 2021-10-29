@@ -123,7 +123,7 @@ public class Model {
     }
 
     private void initLevel3(){
-        this.board = new Board(7, 7);
+        this.board = new Board(3, 7);
         this.board.setSpace(1, 0, Space.Player);
         this.board.setObstacle(0, 1, 2, 1, Space.Red);
         this.board.setObstacle(2, 0, 3, 1, Space.Yellow);

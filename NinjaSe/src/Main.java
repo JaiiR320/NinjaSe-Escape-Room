@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         //level = scan.nextInt();
-        level = 1;
+        level = 0;
         ModelController controller = new ModelController(level);
         Window game = new Window(controller.getBoard());
         game.updateGamePanel(controller.getBoard());

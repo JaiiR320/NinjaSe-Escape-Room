@@ -51,7 +51,6 @@ public class ControlPanel extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO
     }
     public class MyKeyAdapter extends KeyAdapter {
         @Override
@@ -78,22 +77,4 @@ public class ControlPanel extends JPanel implements ActionListener {
             }
         }
     }
-
-    /**
-     * Paint the components passed in. Calls <code>draw()</code>
-     * @see #draw(Graphics)
-     * @param g the graphics
-     
-    public void paintComponent(Graphics g){
-        super.paintComponents(g);
-        draw(g);
-    }
-    
-    
-     * Draws the entire board on the panel. Lines overlap outside the panel by 2px. The board is dynamically drawn, and can take any board.
-     * @param g the graphics
-     
-    private void draw(Graphics g) {
-        // TODO : Draw buttons, labels etc
-    }*/
 }
