@@ -1,0 +1,32 @@
+visibility AttName : TypeName [Multiplicity]
+
+AttName:
+Name of attribute, if underlined then static
+the concept final is implementation details
+
+Visibilitty:
++ public
+- private
+# protected
+~ package private
+
+Multiplicity:
+[0..1] value could be null
+[1..*] collection of atleast one value
+[n..m] collection between n and m
+[*] zero or more values
+
+___________________Class______________________
+visibility fieldName : TypeName [Multiplicity]
+______________________________________________
+visibility function :  TypeName [Multiplicity]
+
+ex. 
+Field:
++x : double [0..1] // a double x which could be null
+Function:
+-doStuff(x: double)
+
+arrows between diagrams can also include Multiplicity above the arrow
+arrows define directional relationship
+no arrow means bidirectional

@@ -2,7 +2,6 @@ package boundaries;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.lang.Character.UnicodeBlock;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;

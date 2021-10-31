@@ -5,8 +5,8 @@
     ],
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "c:\\Users\\MSI\\Documents\\hamcrest.jar",
-        "c:\\Users\\MSI\\Documents\\junit.jar",
+        "NinjaSe\\lib\\hamcrest.jar",
+        "NinjaSe\\lib\\junit.jar",
         "NinjaSe\\lib\\flatlaf-1.6.1.jar",
         "NinjaSe\\lib\\flatlaf-intellij-themes-1.6.1.jar"
     ]

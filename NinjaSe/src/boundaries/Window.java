@@ -21,7 +21,7 @@ public class Window extends JFrame{
         gPanel = new GamePanel(b);
         cPanel = new ControlPanel();
         cPanel.setPreferredSize(new Dimension(cPanel.SCREEN_WIDTH, cPanel.SCREEN_HEIGHT));
-
+        
         this.setLayout(new FlowLayout(FlowLayout.LEFT));
         this.add(this.gPanel);
         this.add(this.cPanel);
