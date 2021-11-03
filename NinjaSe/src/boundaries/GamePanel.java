@@ -59,6 +59,7 @@ public class GamePanel extends JPanel {
      * @param g the graphics
      */
     private void draw(Graphics g) {
+        // Draw obstacles or empty spaces on board
         for(int i = 0; i < this.SCREEN_HEIGHT/this.BLOCK_SIZE; i++){
             for (int j = 0; j < this.SCREEN_WIDTH/this.BLOCK_SIZE; j++) {
                 switch (board.space[i][j]) {
@@ -90,8 +91,10 @@ public class GamePanel extends JPanel {
                 g.fillRect(j*BLOCK_SIZE, i*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
             }
         }
+        // draw NinjaSe image on board
         g.drawImage(this.ninja, board.playerX*BLOCK_SIZE, board.playerY*BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE, Color.black, null);
 
+        // Grid lines
         Graphics2D g2d = (Graphics2D)g;
         g2d.setStroke(new BasicStroke(4));
         g2d.setColor(Color.LIGHT_GRAY);

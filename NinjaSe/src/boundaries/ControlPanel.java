@@ -41,7 +41,6 @@ public class ControlPanel extends JPanel implements ActionListener {
         left.setFont(new Font("Monospaced", Font.BOLD, 25));
         right.setFont(new Font("Monospaced", Font.BOLD, 25));
 
-
         this.add(up);
         this.add(down);
         this.add(left);

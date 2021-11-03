@@ -22,7 +22,10 @@ public class Window extends JFrame{
         cPanel = new ControlPanel();
         cPanel.setPreferredSize(new Dimension(cPanel.SCREEN_WIDTH, cPanel.SCREEN_HEIGHT));
         
-        this.setLayout(new FlowLayout(FlowLayout.LEFT));
+        //this.setLayout(new FlowLayout(FlowLayout.LEFT));
+        this.setLayout(null);
+        cPanel.setBounds(350, 0, 200, 350);
+        gPanel.setBounds(0, 0, 350, 350);
         this.add(this.gPanel);
         this.add(this.cPanel);
         this.setTitle("NinjaSe");
@@ -30,7 +33,7 @@ public class Window extends JFrame{
         this.setIconImage(image.getImage());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
-        this.setSize(230 + gPanel.SCREEN_WIDTH, 400);
+        this.setSize(230 + 350, 400);
         this.setVisible(true);
         this.setLocation(200, 200);
     }

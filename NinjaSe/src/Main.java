@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         //level = scan.nextInt();
-        level = 0;
+        level = 1;
         ModelController controller = new ModelController(level);
         Window game = new Window(controller.getBoard());
         game.updateGamePanel(controller.getBoard());
@@ -38,7 +38,9 @@ public class Main {
                     System.out.println("Continue? (yes)");
                 }
                 KeyHandler.proposed = null;
-                controller = new ModelController(level);
+                System.out.println("Level: ");
+                controller = new ModelController(scan.nextInt());
+                game.updateGamePanel(controller.getBoard());
             }
         }
     }

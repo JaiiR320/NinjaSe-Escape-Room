@@ -18,3 +18,12 @@ Up, Down, Left, Right
 Model
 -----
 board : Board
+
+Entity     : Objects 
+    top level : Model
+Boundary   : Storyboard
+    top level : JFrame/window
+    may contain interaction but no controll from the interaction (low level)
+Controller : Use Cases
+    top level : none
+    does not have a state, but controls the states
