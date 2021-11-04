@@ -48,11 +48,27 @@ public class Board {
         this.space[y][x] = s;
     }
 
+    /**
+     * Sets an obstacle at 2 locations
+     * @see #setSpace(int, int, Space)
+     * @param x1 x position of obstacle 1
+     * @param y1 y position of obstacle 1
+     * @param x2 x position of obstacle 2
+     * @param y2 y position of obstacle 2
+     * @param s the type of space
+     * @see Space
+     */
     public void setObstacle(int x1, int y1, int x2, int y2, Space s){
         this.space[y1][x1] = s;
         this.space[y2][x2] = s;
     }
 
+    /**
+     * gets the space at position[x][y]
+     * @param x
+     * @param y
+     * @return the space
+     */
     public Space getSpace(int x, int y){
         return this.space[y][x];
     }

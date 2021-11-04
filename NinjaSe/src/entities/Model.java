@@ -1,51 +1,35 @@
 package entities;
 
-import controller.KeyHandler;
-
 /**
  * Model
  */
 public class Model {
     public Board board;
+    public int currentLevel;
 
-    public Model(int level){
-        switch (level) {
-        case 1:
-            initLevel1();
-            break;
-        case 2:
-            initLevel2();
-            break;
-        case 3:
-            initLevel3();
-            break;
-        default:
-            initDefault();
-            break;
-        }
+    public Model(){
+        this.initialize(1);
     }
 
     /**
-     * moves the player, and simultaneously checks for if the move is possible
-     * @param d the specified direction
+     * Initialize the model with a given level. Updates the board.
+     * @param level
      */
-    public void movePlayer(Direction d){
-        if(d == null){
-            return;
-        }
-        if(this.board.checkMove(d)){
-            this.board.move(d);
-        }
-        else if (this.board.checkPush(d)){
-            this.board.push(d);
-        }
-        else if(this.board.checkCombine(d)){
-            this.board.combine(d);
-        }
-        else {
-            System.out.println("Cannot move " + d);
-        }
-        KeyHandler.reset();
+    public void initialize(int level){
+        switch (level) {
+            case 1:
+                initLevel1();
+                break;
+            case 2:
+                initLevel2();
+                break;
+            case 3:
+                initLevel3();
+                break;
+            default:
+                initLevel1();
+                break;
+            }
     }
     
     /**
@@ -60,7 +44,12 @@ public class Model {
         return this.board.checkMove(d) || this.board.checkPush(d) || this.board.checkCombine(d); 
     }
 
-
+    /**
+     * Checks if the current board has no obstacles. 
+     * @return
+     * true if the board has no obstacles
+     * <li>false if the board still has obstacles</li>
+     */
     public boolean checkWin(){
         for (Space[] row : this.board.space) {
             for (Space space : row) {
@@ -71,6 +60,9 @@ public class Model {
         return true;
     }
 
+    /**
+     * Prints the board to the console
+     */
     public void printBoard(){
         for (Space[] rowsSpaces : this.board.space) {
             for (Space space : rowsSpaces) {
@@ -107,36 +99,31 @@ public class Model {
     }
 
     private void initLevel1(){
-        this.board = new Board(3, 3);
-        this.board.setSpace(0, 0, Space.Player);
-        this.board.setObstacle(1, 0, 2, 0, Space.Red);
-        this.board.setObstacle(0, 1, 1, 1, Space.Blue);
-        this.board.setObstacle(1, 2, 2, 2, Space.Green);
+        this.board = new Board(4, 5);
+        this.board.setSpace(1, 1, Space.Player);
+        this.board.setObstacle(3, 0, 2, 2, Space.Yellow);
+        this.currentLevel = 1;
     }
 
     private void initLevel2(){
-        this.board = new Board(7, 7);
-        this.board.setSpace(0, 0, Space.Player);
-        this.board.setObstacle(1, 0, 2, 0, Space.Red);
-        this.board.setObstacle(0, 1, 1, 1, Space.Blue);
-        this.board.setObstacle(1, 2, 2, 2, Space.Green);
+        this.board = new Board(3, 7);
+        this.board.setSpace(1, 0, Space.Player);
+        this.board.setObstacle(0, 1, 2, 1, Space.Red);
+        this.board.setObstacle(2, 0, 3, 1, Space.Yellow);
+        this.board.setObstacle(1, 1, 6, 2, Space.Blue);
+        this.board.setObstacle(6, 0, 6, 1, Space.Green);
+        this.currentLevel = 2;
     }
 
     private void initLevel3(){
-        this.board = new Board(3, 7);
-        this.board.setSpace(1, 0, Space.Player);
-        this.board.setObstacle(0, 1, 2, 1, Space.Red);
-        this.board.setObstacle(2, 0, 3, 1, Space.Yellow);
-        this.board.setObstacle(1, 1, 6, 2, Space.Blue);
-        this.board.setObstacle(6, 0, 6, 1, Space.Green);
-    }
-
-    private void initDefault(){
-        this.board = new Board(3, 7);
-        this.board.setSpace(1, 0, Space.Player);
-        this.board.setObstacle(0, 1, 2, 1, Space.Red);
-        this.board.setObstacle(2, 0, 3, 1, Space.Yellow);
-        this.board.setObstacle(1, 1, 6, 2, Space.Blue);
-        this.board.setObstacle(6, 0, 6, 1, Space.Green);
+        this.board = new Board(7, 7);
+        this.board.setSpace(6, 6, Space.Player);
+        this.board.setObstacle(5, 1, 0, 3, Space.Magenta);
+        this.board.setObstacle(1, 2, 3, 3, Space.Cyan);
+        this.board.setObstacle(2, 2, 5, 6, Space.Green);
+        this.board.setObstacle(1, 3, 4, 5, Space.Yellow);
+        this.board.setObstacle(1, 4, 5, 5, Space.Blue);
+        this.board.setObstacle(2, 3, 6, 5, Space.Red);
+        this.currentLevel = 3;
     }
 }
