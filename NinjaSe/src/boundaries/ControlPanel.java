@@ -63,10 +63,12 @@ public class ControlPanel extends JPanel {
         up.setFont(new Font("Monospaced", Font.BOLD, 25));
         down.setFont(new Font("Monospaced", Font.BOLD, 25));
         left.setFont(new Font("Monospaced", Font.BOLD, 25));
-        right.setFont(new Font("Monospaced", Font.BOLD, 25));       
+        right.setFont(new Font("Monospaced", Font.BOLD, 25)); 
+        reset.setFont(new Font("Monospaced", Font.BOLD, 18));
         level1.setFont(new Font("Monospaced", Font.BOLD, 15));  
         level2.setFont(new Font("Monospaced", Font.BOLD, 15));  
         level3.setFont(new Font("Monospaced", Font.BOLD, 15));   
-        reset.setFont(new Font("Monospaced", Font.BOLD, 18));
+        moveLabel.setFont(new Font("Monospaced", Font.BOLD, 15));
+        moveLabel.setForeground(Color.BLACK);
     }
 }   

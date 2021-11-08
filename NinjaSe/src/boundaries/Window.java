@@ -95,7 +95,7 @@ public class Window extends JFrame{
         this.add(this.cPanel);
         
         this.setTitle("NinjaSe");
-        ImageIcon image = new ImageIcon("NinjaSe\\bin\\abra.png");
+        ImageIcon image = new ImageIcon("./lib/abra.png");
         this.setIconImage(image.getImage());
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);

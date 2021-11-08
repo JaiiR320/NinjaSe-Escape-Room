@@ -27,11 +27,10 @@ public class GamePanel extends JPanel {
         this.board = b;
         this.SCREEN_HEIGHT = (b.height+1)*BLOCK_SIZE;
         this.SCREEN_WIDTH = (b.width+1)*BLOCK_SIZE;
-        File pic = new File ("NinjaSe\\bin\\ninja-se.png");
-        this.ninja = null;
         try {
-            this.ninja = ImageIO.read(pic);
+            this.ninja = ImageIO.read(new File("./lib/ninja-se.png"));
         } catch (IOException e) {
+        	this.ninja = null;
             e.printStackTrace();
         }
         this.setSize(new Dimension(350, 350)); // TODO COULD MAKE GPANEL TOO SMALL
