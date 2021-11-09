@@ -28,7 +28,7 @@ public class GamePanel extends JPanel {
         this.SCREEN_HEIGHT = (b.height+1)*BLOCK_SIZE;
         this.SCREEN_WIDTH = (b.width+1)*BLOCK_SIZE;
         try {
-            this.ninja = ImageIO.read(new File("./lib/ninja-se.png"));
+            this.ninja = ImageIO.read(new File("./NinjaSe/bin/ninja-se.png"));
         } catch (IOException e) {
         	this.ninja = null;
             e.printStackTrace();

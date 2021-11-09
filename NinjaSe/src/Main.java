@@ -11,7 +11,8 @@ import entities.*;
 public class Main {    
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         Model NinjaSe = new Model();   
-        UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme");
-		Window window = new Window(NinjaSe);      
+        //UIManager.setLookAndFeel("com.formdev.flatlaf.intellijthemes.FlatOneDarkIJTheme");
+		Window window = new Window(NinjaSe);     
+        window.setVisible(true); 
     }
 }

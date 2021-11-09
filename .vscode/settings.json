@@ -9,5 +9,6 @@
         "NinjaSe\\lib\\junit.jar",
         "NinjaSe\\lib\\flatlaf-1.6.1.jar",
         "NinjaSe\\lib\\flatlaf-intellij-themes-1.6.1.jar"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
