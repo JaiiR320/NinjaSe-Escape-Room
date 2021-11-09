@@ -5,9 +5,7 @@ import boundaries.GamePanel;
 import boundaries.Window;
 
 /**
- * Handles the following use cases:
- * Reset Game
- * Select Level
+ * ResetController
  */
 public class ResetController {
     Model model;

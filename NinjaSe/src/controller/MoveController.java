@@ -5,15 +5,6 @@ import javax.swing.JOptionPane;
 import boundaries.*;
 import entities.*;
 
-/**
- * Handles the following use cases:
- * Move Player
- * Push Obstacle
- * Combine Obstacle
- * Win Game
- * 
- * Also increments the move counter
- */
 public class MoveController {
     public Model model;
     public Window window;
