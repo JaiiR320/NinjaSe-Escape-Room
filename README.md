@@ -1,18 +1,11 @@
-# Getting Started
+# NinjaSe
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This is NinjaSe, an escape room game developed as part of an Individual Project for my Software Engineering class. It features a Ninja who has to move about a grid and combine obstacles in order to clear them. There are matching pairs of obstacles, and when these pairs are combined, they dissapear from the board. Once all obstacles are gone, the Ninja can escape!
 
-## Folder Structure
+## How to play
 
-The workspace contains two folders by default, where:
+You can play by either downloading the IP.jar file and launching it, though you may need to download the NinjaSe image in order to see the Ninja's sprite. Otherwise, you can download the sourcecode and run int using your own methods. 
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## What it's made with
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+I utilized the JavaFX/Swing graphics library in order to design a GUI with buttons and a visual representation of the escape room. The structure of the project itself follows the MVC (model-view-controller) architecture.
